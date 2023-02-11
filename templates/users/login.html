@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} | Account Login {% endblock %}
+{% block content %}
+
+<div class='container'>
+    <div class=" mt-5">
+        <div class=" col-lg-5 bg-light m-auto rounded shadow-lg">
+            <h2 class=" text-center pt-3">Sign In</h2>
+            <p class="text-center">Don't have an account? <a href="{% url 'users:register' %}">Create an account.</a></p>
+            <form method='POST'>
+                {% csrf_token %}
+                <div class="form-group ps-2 pe-2 mb-3">
+                    <label for="email">Email address</label>
+                    <input type="email" required name="email" class="form-control shadow-sm" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+
+                <div class="form-group ps-2 pe-2 mb-3">
+                    <label for="password">Password</label>
+                    <input type="password"  required name="password" class="form-control shadow-sm" id="password" placeholder="Password">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your password with anyone else.</small>
+                </div>
+
+                <div class="text-center">
+                    <button class="btn btn-secondary btn-lg mb-3" type="button submit">
+                    Log In
+                    </button>
+                </div>            
+            </form>
+            
+            
+            
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
